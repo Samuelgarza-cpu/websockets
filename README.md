@@ -41,7 +41,39 @@ php artisan migrate
 php artisan vendor:publish --provider="BeyondCode\LaravelWebSockets\WebSocketsServiceProvider" --tag="config"
 
 
+php artisan websockets:serve
+
 
 ## env
 
 BROADCAST_DRIVER=pusher
+
+PUSHER_APP_ID=12345678
+PUSHER_APP_KEY=asdasdas
+PUSHER_APP_SECRET=ffdfgdfgd
+# PUSHER_HOST=
+# PUSHER_PORT=443
+# PUSHER_SCHEME=https
+PUSHER_APP_CLUSTER=mt1
+
+
+## broadcasting.php
+
+ 'pusher' => [
+            'driver' => 'pusher',
+            'key' => env('PUSHER_APP_KEY'),
+            'secret' => env('PUSHER_APP_SECRET'),
+            'app_id' => env('PUSHER_APP_ID'),
+            'options' => [
+                'cluster' => env('PUSHER_APP_CLUSTER'),
+                'encrypted' => true,
+                'host' => '127.0.0.1',
+                'port' => 6001,
+                'scheme' => 'http'
+            ],
+        ],
+
+
+## php artisan make:event eventTurno
+
+añadir al evento ##implements ShouldBroadcast
