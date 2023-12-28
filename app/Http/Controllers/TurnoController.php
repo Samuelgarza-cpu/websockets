@@ -8,6 +8,12 @@ use App\Events\eventTurno;
 class TurnoController extends Controller
 {
     public function index(){
-        event(new eventTurno);
+        $lista = [
+            array("TURNO"=>"1","CAJA"=>"1"),
+           
+           
+        ];
+     event(new eventTurno(json_encode($lista)));
+    
     }
 }

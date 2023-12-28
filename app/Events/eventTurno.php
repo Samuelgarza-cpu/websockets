@@ -17,9 +17,10 @@ class eventTurno implements ShouldBroadcast
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public $message;
+    public function __construct($message)
     {
-        //
+        $this->message = $message;
     }
 
     /**
@@ -27,10 +28,12 @@ class eventTurno implements ShouldBroadcast
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */
-    public function broadcastOn(): array
-    {
-        return [
-            new Channel('Turnos'),
-        ];
-    }
+    public function broadcastOn()
+  {
+      return ['myCanal'];
+  }
+  public function broadcastAs()
+  {
+      return 'myEvento';
+  }
 }

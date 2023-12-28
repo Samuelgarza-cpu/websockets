@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Events\eventTurno;  
+use App\Events\eventTurno;
+use App\Http\Controllers\TurnoController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    event(new eventTurno);
-});
+
+Route::get('/test',[TurnoController::class,'index']);
 Route::view('echo','checkingWebsockets');
